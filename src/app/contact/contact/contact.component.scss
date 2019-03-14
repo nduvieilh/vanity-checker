@@ -1,0 +1,10 @@
+@import '~src/styles/_variables.scss';
+
+.card-icon {
+    background-color: $app-background-color;
+    text-align: center;
+    overflow: hidden;
+    mat-icon {
+        line-height: 40px;
+    }
+}

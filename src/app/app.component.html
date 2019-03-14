@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <span>{{title}}</span>
+
+  <span class="spacer"></span>
+
+  <nav mat-tab-nav-bar
+       backgroundColor="primary"
+       color="accent">
+    <a mat-tab-link
+       *ngFor="let link of navLinks"
+       [routerLink]="link.path"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      {{link.label}}
+    </a>
+  </nav>
+</mat-toolbar>
+
+<div class="container-fluid p-3"></div>
+  <router-outlet></router-outlet>
+</div>
