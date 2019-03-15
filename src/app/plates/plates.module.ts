@@ -5,11 +5,18 @@ import { PlateComponent } from './plate/plate.component';
 import { PlateSearchComponent } from './plate-search/plate-search.component';
 import { PlatesRoutingModule } from './plates-routing.module';
 
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 @NgModule({
   declarations: [PlatesListComponent, PlateComponent, PlateSearchComponent],
   imports: [
     CommonModule,
-    PlatesRoutingModule
+    PlatesRoutingModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule
   ]
 })
 export class PlatesModule { }

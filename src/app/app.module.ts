@@ -8,6 +8,8 @@ import { PlatesModule } from './plates/plates.module';
 import { ContactModule } from './contact/contact.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ConstsModule } from './consts/consts.module';
+import { ModelsModule } from './models/models.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     PlatesModule,
     ContactModule,
     MatToolbarModule,
-    MatTabsModule
+    MatTabsModule,
+    ConstsModule,
+    ModelsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
