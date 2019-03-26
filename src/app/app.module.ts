@@ -9,7 +9,7 @@ import { ContactModule } from './contact/contact.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ConstsModule } from './consts/consts.module';
-import { ModelsModule } from './models/models.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,16 +17,17 @@ import { ModelsModule } from './models/models.module';
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     PlatesModule,
     ContactModule,
     MatToolbarModule,
     MatTabsModule,
-    ConstsModule,
-    ModelsModule
+    ConstsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

@@ -1,3 +1,5 @@
-<p>
-  plates-list works!
-</p>
+<app-plate
+    *ngFor="let plateRegion of plateRegions"
+    plate-region="plateRegion"
+    searchTerm="searchTerm"
+></app-plate>

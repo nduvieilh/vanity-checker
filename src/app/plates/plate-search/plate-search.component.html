@@ -3,9 +3,16 @@
         <mat-card>
             <mat-form-field appearance="outline">
                 <mat-label>Search Plates</mat-label>
-                <input matInput placeholder="Try '{{randomPlateSuggestion}}'">
+                <input matInput
+                       [(ngModel)]="searchTerm"
+                       placeholder="Try '{{randomPlateSuggestion}}'"/>
                 <mat-hint>Type in the plate you want to check</mat-hint>
             </mat-form-field>
         </mat-card>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <app-plates-list searchTerm="searchTerm"></app-plates-list>
     </div>
 </div>

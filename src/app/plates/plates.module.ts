@@ -9,6 +9,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
+import { SharedModule } from '../shared/shared.module';
+
 @NgModule({
   declarations: [PlatesListComponent, PlateComponent, PlateSearchComponent],
   imports: [
@@ -16,7 +18,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     PlatesRoutingModule,
     MatCardModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    SharedModule
   ]
 })
 export class PlatesModule { }
