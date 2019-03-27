@@ -8,7 +8,7 @@ import { sample } from 'lodash';
   styleUrls: ['./plate-search.component.scss']
 })
 export class PlateSearchComponent implements OnInit {
-    searchTerm: string = '';
+    searchTerm: string = 'test 123';
     randomPlateSuggestion: string;
     
 

@@ -1,5 +1,9 @@
-<app-plate
-    *ngFor="let plateRegion of plateRegions"
-    plate-region="plateRegion"
-    searchTerm="searchTerm"
-></app-plate>
+<div class="d-flex flex-wrap">
+    <div class="col-sm-6 col-md-3 p-3"
+        *ngFor="let plateRegionCode of plateRegions">
+        <app-plate
+            [plateRegionCode]="plateRegionCode"
+            [searchTerm]="searchTerm"
+        ></app-plate>
+    </div>
+</div>
