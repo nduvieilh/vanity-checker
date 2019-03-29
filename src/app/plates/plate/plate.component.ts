@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostBinding } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, Input, HostBinding } from '@angular/core';
 import { PlateConfig } from '../plate-config/plate-config';
 import { PlatesService } from '../plates.service';
 import { Regions } from 'src/app/models/regions.enum';
@@ -10,7 +10,7 @@ import { config } from 'rxjs';
   templateUrl: './plate.component.html',
   styleUrls: ['./plate.component.scss']
 })
-export class PlateComponent implements OnInit {
+export class PlateComponent implements OnInit, OnChanges {
   @Input() searchTerm: String;
   @Input() plateRegionCode: Regions;
   config: PlateConfig;
@@ -24,6 +24,20 @@ export class PlateComponent implements OnInit {
   ngOnInit() {
     this.config = this.platesService.getPlateConfig(this.plateRegionCode);
     console.log('[', this.plateRegionCode,'] plate config ', this.config);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes.searchTerm.currentValue) {
+      this.checkPlate(this.searchTerm);  
+    }
+  }
+
+
+  checkPlate(searchTerm: String) {
+    this.platesService.checkPlate(this.plateRegionCode, searchTerm)
+        .subscribe((data: any) => {
+            console.log(data);
+        });
   }
 
 }
