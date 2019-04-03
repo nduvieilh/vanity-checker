@@ -23,8 +23,4 @@ export class PlateSearchComponent implements OnInit {
     this.randomPlateSuggestion = ''+sample(PlateSuggestions);
   }
 
-  checkPlateAvailability(searchTerm: string) {
-
-  }
-
 }
