@@ -1,11 +1,12 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { sample, random, now } from 'lodash';
 
-let generatePlateResult = () => {
+let generatePlateResult = (regionCode) => {
     return {
         availability: sample([true, false]),
         searchCount: random(1, 1000),
-        lastSearched: new Date(now() - random(1, 100000))
+        lastSearched: new Date(now() - random(1, 100000)),
+        regionCode: regionCode
     }
 };
 
@@ -69,12 +70,14 @@ export class PlatesRouter {
         let params = req.params;
         let query = req.query;
 
+        let regionCode = params.regionCode;
+
         // res.send({
         //     params: params,
         //     query: query
         // });
 
-        res.send(generatePlateResult());
+        res.send(generatePlateResult(regionCode));
     }
 
     /**

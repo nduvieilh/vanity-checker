@@ -6,6 +6,7 @@ import { style } from '@angular/animations';
 import { config, Subject, Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { PlateResult } from 'src/app/models/plate-result';
+import { PlatesConfigService } from '../plates-config.service';
 
 @Component({
     selector: 'app-plate',
@@ -27,7 +28,7 @@ export class PlateComponent implements OnInit, OnChanges {
     @HostBinding('class.invalid') get valid() { return !this.config.test(this.searchTerm) }
 
     ngOnInit() {
-        this.config = this.platesService.getPlateConfig(this.plateRegionCode);
+        this.config = PlatesConfigService.getPlateConfig(this.plateRegionCode);
         console.log('[', this.plateRegionCode, '] plate config ', this.config);
 
 
@@ -36,7 +37,11 @@ export class PlateComponent implements OnInit, OnChanges {
             distinctUntilChanged(),
             switchMap(searchTerm =>
               this.platesService.checkPlate(this.plateRegionCode, searchTerm))
-          );
+        );
+
+        this.plateResult$.subscribe((data: PlateResult) => {
+            console.log(data);
+        });
     }
 
     ngOnChanges(changes: SimpleChanges) {
