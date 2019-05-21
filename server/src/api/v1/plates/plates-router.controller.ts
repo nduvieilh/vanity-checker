@@ -1,7 +1,7 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { sample, random, now } from 'lodash';
 import { Regions } from 'models/regions.enum';
-import { SearchPlates } from 'services/plate-search/test.service';
+import { SearchPlates } from 'services/plate-search/search-plates.service';
 
 let generatePlateResult = (regionCode) => {
     return {
@@ -73,9 +73,8 @@ export class PlatesRouter {
         let query = req.query;
 
 		let regionCode: Regions = (params.regionCode).toUpperCase();
-		let searchTerm: String = query.query;
+		let searchTerm: string = query.term;
 
-		//res.send(generatePlateResult(regionCode));
 		res.send(SearchPlates(regionCode, searchTerm));
     }
 

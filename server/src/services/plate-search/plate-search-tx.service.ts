@@ -7,12 +7,13 @@ export class PlateSearchTX extends PlateSearch {
 		super();
 	}
 
-	search(term: String): PlateResult {
+	search(term: string): PlateResult {
 		let result: PlateResult = {
 			availability: true,
 			regionCode: Regions.TX,
 			searchCount: 2,
-			lastSearched: new Date()
+			lastSearched: new Date(),
+			searchTerm: term
 		};
 
 		console.log('search', term);
