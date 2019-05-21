@@ -2,12 +2,12 @@
   "name": "vanity-checker-server",
   "version": "0.0.1",
   "description": "API for checking license plate availability",
-  "main": "server.js",
+  "main": "build/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d dist --source-maps",
-    "start": "nodemon src/server.js",
-    "serve": "node dist/server.js"
+    "build": "tsc",
+    "start": "tsc && NODE_PATH=build node build/server.js",
+    "serve": "nodemon"
   },
   "repository": {
     "type": "git",

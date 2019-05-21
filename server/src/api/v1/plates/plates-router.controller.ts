@@ -1,5 +1,7 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { sample, random, now } from 'lodash';
+import { Regions } from 'models/regions.enum';
+import { SearchPlates } from 'services/plate-search/test.service';
 
 let generatePlateResult = (regionCode) => {
     return {
@@ -70,14 +72,11 @@ export class PlatesRouter {
         let params = req.params;
         let query = req.query;
 
-        let regionCode = params.regionCode;
+		let regionCode: Regions = params.regionCode;
+		let searchTerm: String = query.query;
 
-        // res.send({
-        //     params: params,
-        //     query: query
-        // });
-
-        res.send(generatePlateResult(regionCode));
+		//res.send(generatePlateResult(regionCode));
+		res.send(SearchPlates(regionCode, searchTerm));
     }
 
     /**
@@ -89,7 +88,6 @@ export class PlatesRouter {
         // this.router.get('/:id', this.detail);
         // this.router.put('/:id', this.update);
         // this.router.delete('/:id', this.destroy);
-
         this.router.get('/regions/:regionCode', this.searchPlates);
     }
 

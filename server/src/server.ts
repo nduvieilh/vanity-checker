@@ -1,3 +1,5 @@
+process.env.NODE_PATH = "build";
+
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
