@@ -72,7 +72,7 @@ export class PlatesRouter {
         let params = req.params;
         let query = req.query;
 
-		let regionCode: Regions = params.regionCode;
+		let regionCode: Regions = (params.regionCode).toUpperCase();
 		let searchTerm: String = query.query;
 
 		//res.send(generatePlateResult(regionCode));
